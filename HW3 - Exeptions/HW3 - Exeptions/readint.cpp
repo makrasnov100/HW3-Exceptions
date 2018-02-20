@@ -23,6 +23,12 @@ int read_int(const string &prompt, int low, int high)
 		try {
 			cout << prompt;
 			cin >> num;
+			if (num > high || num < low) 
+			{
+				std::string error = "Integer outside of valid range!";
+				throw range_error(error);
+			}
+
 			return num;
 		}
 		catch (ios_base::failure& ex) {
@@ -34,8 +40,15 @@ int read_int(const string &prompt, int low, int high)
 			// Skip current input line
 			cin.ignore(numeric_limits<int>::max(), '\n');
 		}
-		catch (out_of_range(string& msg)) {
-
+		catch (range_error &msg) {
+			// Print error message
+			cout << "ERROR: Integer Outside of Valid Range" << endl;
+			cout << "Please Try Again..." << endl;
+		}
+		catch (...) {
+			// Print error message
+			cout << "ERROR: Unrecognized" << endl;
+			cout << "Please Try Again..." << endl;
 		}
 	}
 }

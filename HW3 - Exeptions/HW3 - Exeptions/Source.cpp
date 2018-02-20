@@ -1,11 +1,13 @@
+#include <iostream>
+#include <stdexcept>
+#include <cstdio>
+#include "readint.h"
+using namespace std;
+
+
 //Main driver of the program
 //Author: Kostiantyn Makrasnov
 //COMPLETED from problem guide base
-
-#include <iostream>
-#include <stdexcept>
-#include "readint.h"
-using namespace std;
 
 int main()
 {
@@ -30,12 +32,18 @@ int main()
 
 		// Prompt the user for an int inside the range
 		int number = read_int(prompt, low, high);
-		cout << "You entered " << number << endl;
+		cout << "You entered: " << number << endl;
 	}
 	catch (invalid_argument &e) { // Notifies user of improper bounds
-		cerr << "Exception: You supplied an invalid argument(s) for read_int!\n";
+		cerr << "Exception: You supplied an invalid RANGE argument(s) for read_int!\n";
 	}
-	catch (...) { // Notifies user about any other exeption
-		cerr << "Exception: Some unexpected error occured!\n";
+	catch (...) {
+		cerr << "Exception: Something Unexpected Occured!\n";
 	}
+
+	//Pause Execution (to see results)
+	cin.ignore();
+	cin.get();
+
+	return 0;
 }
