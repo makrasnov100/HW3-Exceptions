@@ -23,7 +23,7 @@ int read_int(const string &prompt, int low, int high)
 		try {
 			cout << prompt;
 			cin >> num;
-			if (num > high || num < low) 
+			if (num > high || num < low || low == high) 
 			{
 				std::string error = "Integer outside of valid range!";
 				throw range_error(error);

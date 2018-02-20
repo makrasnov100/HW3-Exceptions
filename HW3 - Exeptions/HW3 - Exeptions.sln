@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HW3 - Exeptions", "HW3 - Exeptions\HW3 - Exeptions.vcxproj", "{93EA7E6E-AE20-4F2B-A998-CB3F3792FFEE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HW3_Tester", "HW3_Tester\HW3_Tester.vcxproj", "{FF6C5CEC-E963-49D1-8459-CAEF6CB18F5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +23,19 @@ Global
 		{93EA7E6E-AE20-4F2B-A998-CB3F3792FFEE}.Release|x64.Build.0 = Release|x64
 		{93EA7E6E-AE20-4F2B-A998-CB3F3792FFEE}.Release|x86.ActiveCfg = Release|Win32
 		{93EA7E6E-AE20-4F2B-A998-CB3F3792FFEE}.Release|x86.Build.0 = Release|Win32
+		{FF6C5CEC-E963-49D1-8459-CAEF6CB18F5E}.Debug|x64.ActiveCfg = Debug|x64
+		{FF6C5CEC-E963-49D1-8459-CAEF6CB18F5E}.Debug|x64.Build.0 = Debug|x64
+		{FF6C5CEC-E963-49D1-8459-CAEF6CB18F5E}.Debug|x86.ActiveCfg = Debug|Win32
+		{FF6C5CEC-E963-49D1-8459-CAEF6CB18F5E}.Debug|x86.Build.0 = Debug|Win32
+		{FF6C5CEC-E963-49D1-8459-CAEF6CB18F5E}.Release|x64.ActiveCfg = Release|x64
+		{FF6C5CEC-E963-49D1-8459-CAEF6CB18F5E}.Release|x64.Build.0 = Release|x64
+		{FF6C5CEC-E963-49D1-8459-CAEF6CB18F5E}.Release|x86.ActiveCfg = Release|Win32
+		{FF6C5CEC-E963-49D1-8459-CAEF6CB18F5E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E0D0B32-8327-4507-A060-86EAC58BB54F}
 	EndGlobalSection
 EndGlobal
