@@ -21,10 +21,6 @@ int main()
 	// Get user input within specified range 
 	try
 	{
-		// Throw exeption if bounds do not constitute a valid range
-		if (high <= low || high == NULL || low == NULL)
-			throw std::invalid_argument("Incorrect bounds entered");
-		
 		// Format the prompt so low and high int values are seen in prompt
 		std::string prompt = std::string("Please enter a number within the range (") 
 						   + std::to_string(low) + '-' 
@@ -34,7 +30,7 @@ int main()
 		int number = read_int(prompt, low, high);
 		cout << "You entered: " << number << endl;
 	}
-	catch (invalid_argument &e) { // Notifies user of improper bounds
+	catch (std::invalid_argument &e) { // Notifies user of improper bounds
 		cerr << "Exception: You supplied an invalid RANGE argument(s) for read_int!\n";
 	}
 	catch (...) {

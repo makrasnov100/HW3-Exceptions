@@ -13,24 +13,19 @@ namespace HW3_Tester
 	{
 		TEST_METHOD(TestCase1) // Test case 1: invalid input
 		{
-			// Open a file stream to read the file zeroinput.txt
-			std::ifstream ss("..\\UnitTester\\zeroinput.txt");
+			// crate a string stream object with the desired input
+			std::istringstream ss1("Hello\n0");
 
-			// Check if we opened the file stream successfully
-			if (ss.fail())
-				throw int(-1); // throw an integer with value -1
-
-			// Replace the cin read buffer with the read buffer from the file stream 
-			std::streambuf *orig_cin = std::cin.rdbuf(ss.rdbuf());
+			// Replace the cin read buffer with the read buffer from the string stream 
+			std::streambuf *orig_cin = std::cin.rdbuf(ss1.rdbuf());
 
 			// Perform the read_int() test.
+			// cin will now read contents from your stringstream and not from the keyboard.
+			// We expect the correct value returned is 0, ignoring the Hello string.
 			Assert::AreEqual(read_int("My prompt: ", -3, 3), 0);
 
 			// Restore cin to the way it was before
 			std::cin.rdbuf(orig_cin);
-
-			// Close the file stream
-			ss.close();
 		}
 
 		TEST_METHOD(TestCase2) // Test case 2: for invalid argument (high bound < low bound)
@@ -45,33 +40,27 @@ namespace HW3_Tester
 			Assert::ExpectException<std::invalid_argument>(func);
 		}
 
-		TEST_METHOD(TestCase3) // Test case 3: proper input after 4 invalid inputs
+		TEST_METHOD(TestCase3) // Test case 3: invalid input
 		{
-			// Open a file stream to read the file longinput.txt
-			std::ifstream ss("..\\UnitTester\\longinput.txt");
+			// crate a string stream object with the desired input
+			std::istringstream ss3("9\n5\n10\n10\n3");
 
-			// Check if we opened the file stream successfully
-			if (ss.fail())
-				throw int(-1); // throw an integer with value -1
-
-			// Replace the cin read buffer with the read buffer from the file stream 
-			std::streambuf *orig_cin = std::cin.rdbuf(ss.rdbuf());
+			// Replace the cin read buffer with the read buffer from the string stream 
+			std::streambuf *orig_cin2 = std::cin.rdbuf(ss3.rdbuf());
 
 			// Perform the read_int() test.
+			// cin will now read contents from your stringstream and not from the keyboard.
+			// We expect the correct value returned is 3.
 			Assert::AreEqual(read_int("My prompt: ", 0, 4), 3);
 
 			// Restore cin to the way it was before
-			std::cin.rdbuf(orig_cin);
-
-			// Close the file stream
-			ss.close();
+			std::cin.rdbuf(orig_cin2);
 		}
 
 		TEST_METHOD(TestCase4) // Test case 4: for invalid argument (same low & high)
 		{
 			// define a C++11 Lambda function to be called by your test
 			auto func = []() {
-				// call with incorrect arguments (test case 2)
 				read_int("My prompt: ", 0, 0);
 			};
 

@@ -17,6 +17,11 @@ int read_int(const string &prompt, int low, int high)
 		@param highest | Highest accepted int
 		@return | The first valid int within range
 	*/
+
+	// Throw exeption if bounds do not constitute a valid range
+	if (high <= low)
+		throw std::invalid_argument("Incorrect bounds entered");
+
 	cin.exceptions(ios_base::failbit);
 	int num = 0;
 	while (true){	// Loop until valid input
@@ -26,7 +31,7 @@ int read_int(const string &prompt, int low, int high)
 			if (num > high || num < low || low == high) 
 			{
 				std::string error = "Integer outside of valid range!";
-				throw range_error(error);
+				throw std::range_error(error);
 			}
 
 			return num;
@@ -40,7 +45,7 @@ int read_int(const string &prompt, int low, int high)
 			// Skip current input line
 			cin.ignore(numeric_limits<int>::max(), '\n');
 		}
-		catch (range_error &msg) {
+		catch (std::range_error &msg) {
 			// Print error message
 			cout << "ERROR: Integer Outside of Valid Range" << endl;
 			cout << "Please Try Again..." << endl;
